@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-print BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,11 +26,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TEMPLATE_DIRS = (
-    'simpleSO/templates'
-    'topic/templates',
-)
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -42,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration',
-    'topic',
+    'question',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -89,6 +83,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Template files
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates',),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -96,5 +95,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'static',),
+    os.path.join(BASE_DIR, 'static',),
 )
