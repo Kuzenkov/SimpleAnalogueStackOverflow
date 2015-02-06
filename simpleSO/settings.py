@@ -87,6 +87,7 @@ USE_TZ = True
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates',),
+    os.path.join(BASE_DIR, 'question/templates',),
 )
 
 # Static files (CSS, JavaScript, Images)
