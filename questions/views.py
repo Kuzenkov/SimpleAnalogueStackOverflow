@@ -1,6 +1,6 @@
 from django.shortcuts import render, render_to_response
 from django.views.generic import ListView
-from question.model import Question
+from question.models import Question
 
 
 class QuestionsList(ListView):
