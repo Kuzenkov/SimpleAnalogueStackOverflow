@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration',
-    'question',
+    'questions',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -87,7 +87,7 @@ USE_TZ = True
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates',),
-    os.path.join(BASE_DIR, 'question/templates',),
+    os.path.join(BASE_DIR, 'questions/templates',),
 )
 
 # Static files (CSS, JavaScript, Images)
