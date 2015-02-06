@@ -16,7 +16,7 @@ class Question(models.Model):
         return ' '.join(self.title)
 
     def get_absolute_url(self):
-        return reverse('contacts-view', kwargs={'pk': self.id})
+        return reverse('question-view', kwargs={'pk': self.id})
 
 
 class Comments(models.Model):
