@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
-{% context block %}
-
+{% block content %}
+    <p> {{ question.title }} </p>
+    <p> {{ question.question }} </p>
+    <p> {{ question.created_on }} </p>
 {% endblock %}
