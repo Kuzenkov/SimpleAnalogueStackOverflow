@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} {{question.title}} {% endblock %}
+
 {% block content %}
     <p> {{ question.title }} </p>
     <p> {{ question.question }} </p>
