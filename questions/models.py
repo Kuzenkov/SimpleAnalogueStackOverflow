@@ -13,7 +13,7 @@ class Question(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return ' '.join(self.title)
+        return self.title
 
     def get_absolute_url(self):
         return reverse('question-view', kwargs={'pk': self.id})
