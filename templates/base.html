@@ -5,8 +5,10 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body style="padding-top: 70px;">
 
@@ -45,6 +47,9 @@
                         <a href="{% url 'django.contrib.auth.views.login' %}" >
                         <span class="glyphicon glyphicon-log-in"></span> Sign in</a>
                     </li>
+                    <li>
+                        <a href="{% url 'socialauth_begin' 'facebook' %}"><i class="fa fa-facebook"></i> | Connect with Facebook</a>
+                    </li>
                 </ul>
             {% endif %}
           {% endblock %}
@@ -61,7 +66,8 @@
         {% endblock %}
     </div>
 
-    <div class="col-xs-2 col-sm-2 col-md-2"></div>
+    <div class="col-xs-2 col-sm-2 col-md-2">
+    </div>
 </div>
 
 <footer class="navbar navbar-default navbar-fixed-bottom">
