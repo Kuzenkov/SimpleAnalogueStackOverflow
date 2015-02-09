@@ -26,7 +26,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
 # Application definition
 
@@ -39,9 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration',
-    'questions',
-    'bootstrap3'
+    'bootstrap3',
+    'social_auth',
 )
+
+# Email server setings
 
 ACCOUNT_ACTIVATION_DAYS = 1
 REGISTRATION_AUTO_LOGIN = True
@@ -54,7 +56,26 @@ SERVER_EMAIL = "emptinessssssssss@gmail.com"
 EMAIL_HOST_PASSWORD = "qz1awx2s"
 EMAIL_PORT = 587
 
+# Social auth settings (Facebook)
 
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+FACEBOOK_APP_ID = '326981494179278'
+FACEBOOK_API_SECRET = 'f30845d0609004c5fc28917d24338919'
+FACEBOOK_REDIRECT_URI = 'http://localhost:8080/'
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook', )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -103,6 +124,11 @@ USE_TZ = True
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates',),
     os.path.join(BASE_DIR, 'questions/templates',),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'django.contrib.auth.context_processors.auth',
 )
 
 # Static files (CSS, JavaScript, Images)
