@@ -12,6 +12,11 @@
         <a href="{% url 'registration_register' %}">Register now</a></p>
       <p>Trouble signing in?
         <a href="{% url 'django.contrib.auth.views.password_reset' %}">Reset password.</a></p>
+        {% if not user.is_authenticated %}
+      <p><button class="btn btn-facebook">
+          <a href="{% url 'socialauth_begin' 'facebook' %}"><i class="fa fa-facebook"></i> | Connect with Facebook</a>
+        </button></p>
+        {% endif %}
     </div>
   </div>
 

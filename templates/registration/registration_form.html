@@ -8,7 +8,8 @@
     <div class="col-sm-offset-2 col-sm-10">
       <h3>Sign up</h3>
       <p>Already registered?
-        <a href="{% url 'django.contrib.auth.views.login' %}">Sign in here.</a></p>
+        <a href="{% url 'django.contrib.auth.views.login' %}">Sign in here.</a> or <a href="{% url 'socialauth_begin' 'facebook' %}">Connect with Facebook(<i class="fa fa-facebook"></i>)</a></p>
+        
     </div>
   </div>
 
