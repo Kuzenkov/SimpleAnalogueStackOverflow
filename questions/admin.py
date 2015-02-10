@@ -8,9 +8,8 @@ class QuestionInline(admin.StackedInline):
     extra = 2
 
 
+@admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     """Class for administration Question objects."""
     inlines = [QuestionInline]
     list_filter = ['created_on']
-
-admin.site.register(Question, QuestionAdmin)
