@@ -7,7 +7,7 @@
     <div>
         <p> <a href="{% url "question-view" pk=question.id %}">{{ question.title }}</a> </p>
         <p> {{ question.question|lower|truncatechars:'100' }} </p>
-        <p> Date {{ question.created_on }} </p>
+        <p> Date {{ question.created_on|date }} </p>
         <hr>
     </div>
 {% endfor %}
