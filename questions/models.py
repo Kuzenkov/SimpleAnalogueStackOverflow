@@ -27,3 +27,4 @@ class Comments(models.Model):
 
     comment_text = models.TextField(verbose_name="comment")
     comments_question = models.ForeignKey(Question)
+    created_on = models.DateTimeField(auto_now_add=True)
