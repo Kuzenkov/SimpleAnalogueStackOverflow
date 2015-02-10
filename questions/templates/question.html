@@ -6,4 +6,11 @@
     <p> {{ question.title }} </p>
     <p> {{ question.question }} </p>
     <p> {{ question.created_on }} </p>
+    <br>
+    <h4>{{ comments.count }} Answers </h4>
+    <hr>
+    {% for comment in comments %}
+        <p>{{ comment.comment_text }}</p>
+        <hr>
+    {% endfor %}
 {% endblock %}
