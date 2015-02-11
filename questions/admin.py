@@ -1,10 +1,10 @@
 from django.contrib import admin
-from questions.models import Question, Comments
+from questions.models import Question, Answer
 
 
 class QuestionInline(admin.StackedInline):
     """Class for adding comments to question."""
-    model = Comments
+    model = Answer
     extra = 2
 
 
