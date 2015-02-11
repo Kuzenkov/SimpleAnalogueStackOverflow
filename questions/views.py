@@ -1,9 +1,17 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.views.generic import ListView, DetailView
 from django.core.urlresolvers import reverse
-from django.views.generic.edit import FormView, CreateView, ModelFormMixin, ProcessFormView
+from django.views.generic.edit import CreateView, ModelFormMixin, ProcessFormView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from questions.models import Question, Answer
-from forms import AnswerForm
+from forms import AnswerForm, QuestionForm
+
+
+class LoggedInMixin(object):
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoggedInMixin, self).dispatch(*args, **kwargs)
 
 
 class QuestionsList(ListView):
@@ -14,6 +22,9 @@ class QuestionsList(ListView):
 
 
 class QuestionView(DetailView, ModelFormMixin, ProcessFormView):
+    """
+    Class for displaying page with question, answers and form for giving answer
+    """
     model = Question
     form_class = AnswerForm
     template_name = 'question.html'
@@ -30,3 +41,13 @@ class QuestionView(DetailView, ModelFormMixin, ProcessFormView):
     def post(self, request, *args, **kwargs):
         self.object = Answer(answers_question_id=self.get_object().pk)
         return super(QuestionView, self).post(request, *args, **kwargs)
+
+
+class QuestionCreate(LoggedInMixin, CreateView):
+    model = Answer
+    template_name = 'new_question.html'
+    form_class = QuestionForm
+
+    def get_initial(self):
+        self.initial.update({'owner': self.request.user})
+        return self.initial
