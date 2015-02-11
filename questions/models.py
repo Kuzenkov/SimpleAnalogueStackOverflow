@@ -8,6 +8,7 @@ class Question(models.Model):
 
     class Meta:
         db_table = "questions"
+        ordering = ["-created_on"]
 
     title = models.CharField(max_length=150)
     question = models.TextField()
