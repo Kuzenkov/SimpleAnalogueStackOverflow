@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-SITE_ID = 1
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -28,6 +25,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -38,9 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
     'bootstrap3',
     'social_auth',
+    'registration',
+    'questions',
 )
 
 # Email server setings
@@ -58,6 +58,8 @@ EMAIL_PORT = 587
 
 # Social auth settings (Facebook)
 
+LOGIN_REDIRECT_URL = '/'
+
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 SOCIAL_AUTH_UID_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
@@ -73,7 +75,7 @@ AUTHENTICATION_BACKENDS = (
 
 FACEBOOK_APP_ID = '326981494179278'
 FACEBOOK_API_SECRET = 'f30845d0609004c5fc28917d24338919'
-FACEBOOK_REDIRECT_URI = 'http://localhost:8080/'
+FACEBOOK_REDIRECT_URI = 'http://127.0.0.1:8080/'
 
 SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook', )
 
@@ -139,5 +141,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static',),
 )
-
-LOGIN_REDIRECT_URL = '/'
