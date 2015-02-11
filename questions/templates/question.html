@@ -1,16 +1,37 @@
 {% extends 'base.html' %}
-
+{% load bootstrap3 %}
 {% block title %} {{question.title}} {% endblock %}
 
 {% block content %}
-    <p> {{ question.title }} </p>
+    <h3> {{ question.title }} </h3>
     <p> {{ question.question }} </p>
     <p> {{ question.created_on }} </p>
     <br>
-    <h4>{{ comments.count }} Answers </h4>
+    <h4>{{ answers.count }} Answers </h4>
     <hr>
-    {% for comment in comments %}
-        <p>{{ comment.comment_text }}</p>
+    {% for answer in answers %}
+        <p style="padding-left:70px;">{{ answer.answer_text }}</p>
         <hr>
     {% endfor %}
+
+
+    <form method="post" action="{{ action }}">
+    {% csrf_token %}
+    {% for field in form %}
+        <div id="{{ field.auto_id }}_container" style="padding-left:70px;">
+          {{ field.help_text }}
+          <div>
+            {{ field.label_tag }}
+          </div>
+          <div>{{ field }}</div>
+          <div id="{{ field.auto_id }}_errors">
+            {{ field.errors }}
+          </div>
+        </div>
+      {% endfor %}
+    <div class="col-sm-offset-3 col-sm-10" style="padding-top: 10px;">
+      <button type="submit" class="btn btn-success"> Send </button>
+    </div>
+    </form>
+
 {% endblock %}
