@@ -9,12 +9,12 @@
       <h3>Sign up</h3>
       <p>Already registered?
         <a href="{% url 'django.contrib.auth.views.login' %}">Sign in here.</a> or <a href="{% url 'socialauth_begin' 'facebook' %}">Connect with Facebook(<i class="fa fa-facebook"></i>)</a></p>
-        
+
     </div>
   </div>
 
   <form action="{% url 'registration_register' %}" method="post" role="form" class="form-horizontal">
-      {% csrf_token %}
+    {% csrf_token %}
     <div class="row-fluid" >
     {% bootstrap_form form layout='horizontal' %}
     <div class="col-sm-offset-2 col-sm-10">
