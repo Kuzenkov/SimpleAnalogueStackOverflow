@@ -15,7 +15,7 @@
     {% endfor %}
 
 
-    <form method="post" action="{{ action }}">
+    <form method="post" action="{{ action }}" id="answer-form">
     {% csrf_token %}
     {% for field in form %}
         <div id="{{ field.auto_id }}_container" style="padding-left:70px;">
@@ -29,7 +29,7 @@
           </div>
         </div>
       {% endfor %}
-    <div class="col-sm-offset-9 col-sm-10" style="padding-top: 10px;">
+    <div class="col-sm-offset-9 col-sm-1" style="padding-top: 10px;">
       <button type="submit" class="btn btn-success"> Send </button>
     </div>
     </form>
