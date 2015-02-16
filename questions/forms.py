@@ -7,7 +7,7 @@ class AnswerForm(ModelForm):
         model = Answer
         fields = ['answer_text']
         widgets = {
-            'answer_text': Textarea(attrs={'cols': 70, 'rows': 10}),
+            'answer_text': Textarea(attrs={'id': 'answer-text', 'required': 'True', 'cols': 70, 'rows': 10}),
         }
 
 
@@ -17,7 +17,8 @@ class QuestionForm(ModelForm):
         model = Question
         fields = ['title', 'question']
 
-    def __init__(self, *args, **kwargs):
+    # initial for function get_initial() in views, class QuestionCreate
+    """def __init__(self, *args, **kwargs):
         self.owner = kwargs['initial']['owner']
         super(QuestionForm, self).__init__(*args, **kwargs)
 
@@ -25,4 +26,4 @@ class QuestionForm(ModelForm):
         obj = super(QuestionForm, self).save(False)
         obj.owner = self.owner
         commit and obj.save()
-        return obj
+        return obj"""
