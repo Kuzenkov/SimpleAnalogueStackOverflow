@@ -11,4 +11,27 @@
         <hr>
     </div>
 {% endfor %}
+
+<div class="col-sm-offset-4">
+    <span class="step-links">
+        <ul class="pagination">
+        {% if object_list.has_previous %}
+            <li><a class="glyphicon glyphicon-arrow-left" href="?page={{ object_list.previous_page_number }}"></a></li>
+        {% endif %}
+
+        {% for page in object_list.paginator.page_range %}
+            {% if page == object_list.number %}
+                <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+            {% else %}
+                <li><a href="?page={{ page }}">{{ page }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+       {% if object_list.has_next %}
+            <li><a class="glyphicon glyphicon-arrow-right" href="?page={{ object_list.next_page_number }}"></a></li>
+        {% endif %}
+        </ul>
+    </span>
+</div>
+
 {% endblock %}
