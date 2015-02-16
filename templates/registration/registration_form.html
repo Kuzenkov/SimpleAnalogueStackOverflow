@@ -3,9 +3,9 @@
 {% block title %}Registration{% endblock %}
 
 {% block content %}
-<div class="container">
+
   <div class="row">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-7">
       <h3>Sign up</h3>
       <p>Already registered?
         <a href="{% url 'django.contrib.auth.views.login' %}">Sign in here.</a> or <a href="{% url 'socialauth_begin' 'facebook' %}">Connect with Facebook(<i class="fa fa-facebook"></i>)</a></p>
@@ -17,11 +17,11 @@
     {% csrf_token %}
     <div class="row-fluid" >
     {% bootstrap_form form layout='horizontal' %}
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-1">
       <button type="submit" class="btn btn-success"> Sign Up</button>
     </div>
 
 </div>
   </form>
-</div>
+
 {% endblock %}
