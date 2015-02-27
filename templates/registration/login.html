@@ -28,7 +28,7 @@
   </div>
   {% endif %}
 
-  <form action="{% url 'django.contrib.auth.views.login' %}" method="post" role="form" class="form-horizontal">
+  <form id="login_form" action="{% url 'django.contrib.auth.views.login' %}" method="post" role="form" class="form-horizontal">
     {% csrf_token %}
 
     {% bootstrap_field form.username layout='horizontal' %}
