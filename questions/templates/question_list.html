@@ -4,9 +4,9 @@
 
 {% block content %}
 {% for question in object_list %}
-    <div>
-        <p> <a href="{% url "question-view" pk=question.id %}">{{ question.title }}</a> </p>
-        <p> {{ question.question|lower|truncatechars:'100' }} </p>
+    <div class="question">
+        <p class="title"> <a href="{% url "question-view" pk=question.id %}">{{ question.title }}</a> </p>
+        <p class="question"> {{ question.question|lower|truncatechars:'100' }} </p>
         <p class="text-muted" > User <em>{{ question.owner }}</em> - publication date <em>{{ question.created_on }}</em> </p>
         <hr>
     </div>
