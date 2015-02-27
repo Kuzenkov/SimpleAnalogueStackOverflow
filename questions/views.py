@@ -23,7 +23,7 @@ class QuestionsList(ListView):
     template_name = 'question_list.html'
 
     def get_queryset(self):
-        question_list = Question.objects.filter()
+        question_list = Question.objects.all()
 
         paginator = Paginator(question_list, 10)
         page = self.request.GET.get('page')
