@@ -2,6 +2,7 @@ Django==1.7.4
 Question==0.1
 argparse==1.2.1
 basicauth==0.2
+coverage==3.7.1
 django-bootstrap3==5.1.1
 django-registration==1.0
 django-registration-redux==1.1
