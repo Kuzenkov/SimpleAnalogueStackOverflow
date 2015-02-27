@@ -1,8 +1,14 @@
 Django==1.7.4
 Question==0.1
 argparse==1.2.1
+basicauth==0.2
 django-bootstrap3==5.1.1
 django-registration==1.0
 django-registration-redux==1.1
+django-social-auth==0.7.28
+httplib2==0.9
+mock==1.0.1
+oauth2==1.5.211
 psycopg2==2.5.4
+python-openid==2.2.5
 wsgiref==0.1.2
